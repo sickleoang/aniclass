@@ -1,0 +1,31 @@
+<%- include('partials/head', { title }) %>
+<%- include('partials/navbar') %>
+
+<main class="container mt-4">
+    <div class="p-4 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Welcome to <%- appName %>!</h1>
+            <p class="col-md-8 fs-4">This is a simple Anime streaming platform</p>
+            <a href="/anime" class="btn btn-primary btn-lg">Browse Anime</a>
+        </div>
+    </div>
+
+    <section id="roadmap" class="row g-3 mt-3">
+        <div class="col-md-4">
+            <h2>Latest Releases</h2>
+            <p>Check out the latest episodes.</p>
+            <a href="/anime/latest" class="btn btn-secondary">View Latest</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Top Rated</h2>
+            <p>Discover the top-rated animes.</p>
+            <a href="/anime/top-rated" class="btn btn-secondary">View Top Rated</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Genres</h2>
+            <p>Explore animes by different genres</p>
+            <a href="/anime/genres" class="btn btn-secondary">View Genres</a>
+        </div>
+    </section>
+</main>
+<%- include('partials/footer') %>
