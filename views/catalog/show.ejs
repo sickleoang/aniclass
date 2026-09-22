@@ -1,0 +1,59 @@
+<%- include('../partials/head', { title }) %>
+<%- include('../partials/navbar') %>
+<!--Navullia-->
+
+<main class="container py-5">
+    <a href="/catalog" class="btn btn-primary mb-2">Kembali ke Daftar Anime</a>
+
+    <section class="p-4 p-md-5 bg-white border rounded-3">
+        <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="badge text-bg-primary">
+                <%= anime.genre || 'belum ada genre' %>
+            </span>
+            <span class="badge text-bg-dark">
+                <%= anime.year || 'belum ada tahun' %>
+            </span>
+            <span class="badge text-bg-warning">
+                <%= anime.status || 'belum ada status' %>
+            </span>
+        </div>
+        <h1 class="display-6 fw-bold"><%= anime.title %></h1>
+        <p class="lead text-secondary mb-0"><%= anime.synopsis %></p>
+
+        <section class="mt-5">
+            <div class="d-flex justify-content-between mb-3">
+                <h2 class="h4 mb-0">Daftar Episode</h2>
+                <span class="badge text-bg-dark"><%= episodes.length %> Episode</span>
+            </div>
+
+                <% if (episodes.length > 0) { %>
+                    <div class="list-group">
+                        <% episodes.forEach((episode) => { %> 
+                            <div class="list-group-item py-3">
+                                <div class="d-flex justify-content-between gap-3">
+                                <div>
+                                    <span class="text-secondary small">
+                                        Episode <%= episode.episode_number %>
+                                    </span>
+                                    <h3 class="h6 mb-0"> <%= episode.title %> </h3>
+                                </div>
+                                <span class=
+                                "badge align-self-center
+                                    <%= episode.access_level === 'premium' ? 'text-bg-warning' : 'text-bg-success' %>
+                                "
+                                ><%= episode.access_level === 'premium' ? 'Premium' : 'Basic' %></span>
+                            </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                <% } else { %>
+                    <div class="alert alert-info">
+                        Anime ini belum memiliki episode
+                    </div>
+                <% } %>
+            
+        </section>
+    </section>
+</main>
+
+<%- include('../partials/footer') %>
